@@ -6,6 +6,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import ExerciseDetail from "./pages/ExerciseDetail";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         {/* Route to a specific exercise based on their id */}
         <Route path="/exercise/:id" element={<ExerciseDetail />} />
       </Routes>
+      <Footer />
     </Box>
   );
 }
