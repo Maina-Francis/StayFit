@@ -4,12 +4,9 @@ import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
 import HorizontalScrollbar from "./HorizontalScrollbar";
 
-const SearchExercises = () => {
+const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   // manage the state of search input
   const [search, setSearch] = useState("");
-
-  // add searchedExercises to state so that we can later display it
-  const [exercises, setExercises] = useState([]);
 
   const [bodyParts, setBodyParts] = useState([]);
   // fetch categories as soon as the page loads
@@ -109,7 +106,11 @@ const SearchExercises = () => {
 
       {/* Categories */}
       <Box sx={{ position: "relative", width: "100%", p: "20px" }}>
-        <HorizontalScrollbar data={bodyParts} />
+        <HorizontalScrollbar
+          data={bodyParts}
+          bodyPart={bodyPart}
+          setBodyPart={setBodyPart}
+        />
       </Box>
     </Stack>
   );
