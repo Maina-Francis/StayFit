@@ -9,6 +9,8 @@ import ExerciseVideos from "../components/ExerciseVideos";
 const ExerciseDetail = () => {
   const [exerciseDetail, setExerciseDetail] = useState({});
   const [exerciseVideos, setExerciseVideos] = useState([]);
+  const [targetMuscleExercises, setTargetMuscleExercises] = useState([]);
+  const [equipmentExercises, setEquipmentExercises] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
@@ -32,6 +34,22 @@ const ExerciseDetail = () => {
       );
 
       setExerciseVideos(exerciseVideosData.contents);
+
+      // api call to ExerciseDB api to fetch exercises that target similar muscles
+      const targetMuscleExercisesData = await fetchData(
+        `${exerciseDbUrl}/exercises/target/${exerciseDetailData.target}`,
+        exerciseOptions
+      );
+
+      setTargetMuscleExercises(targetMuscleExercisesData);
+
+      // api call to ExerciseDB api to fetch exercises that use similar equimpent
+      const equipmentExercisesData = await fetchData(
+        `${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`,
+        exerciseOptions
+      );
+
+      setEquipmentExercises(equipmentExercisesData);
     };
 
     fetchExercisesData();
@@ -44,7 +62,10 @@ const ExerciseDetail = () => {
         exerciseVideos={exerciseVideos}
         name={exerciseDetail.name}
       />
-      <SimilarExercises />
+      <SimilarExercises
+        equipmentExercises={equipmentExercises}
+        targetMuscleExercises={targetMuscleExercises}
+      />
     </Box>
   );
 };
