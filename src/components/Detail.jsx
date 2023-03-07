@@ -9,6 +9,21 @@ const Detail = ({ exerciseDetail }) => {
   // destructure exerciseDetail prop
   const { bodyPart, gifUrl, name, target, equipment } = exerciseDetail;
 
+  const extraDetail = [
+    {
+      icon: BodyPartImage,
+      name: bodyPart,
+    },
+    {
+      icon: TargetImage,
+      name: target,
+    },
+    {
+      icon: EquipmentImage,
+      name: equipment,
+    },
+  ];
+
   return (
     <Stack
       gap="60px"
@@ -30,6 +45,29 @@ const Detail = ({ exerciseDetail }) => {
           target your {target}. It will help you improve your mood and gain
           energy.
         </Typography>
+        {/* Loop over extraDetail array to generate bodypart, target muscle and equipment card */}
+        {extraDetail.map((item) => (
+          <Stack key={item.name} direction="row" gap="24px" alignItems="center">
+            <Button
+              sx={{
+                background: "#FFF2DB",
+                borderRadius: "50%",
+                width: "100px",
+                height: "100px",
+              }}
+            >
+              <img
+                src={item.icon}
+                alt={item.name}
+                style={{ width: "50px", height: "50px" }}
+              />
+            </Button>
+
+            <Typography variant="h5" textTransform="capitalize">
+              {item.name}
+            </Typography>
+          </Stack>
+        ))}
       </Stack>
     </Stack>
   );
