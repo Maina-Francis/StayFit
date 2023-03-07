@@ -1,6 +1,6 @@
 # Fitness Application
 
-This is a React-based fitness application that allows users to search for exercises based on their name, equipment, or target muscle. The application fetches data from the Youtube Search and Download API and the ExerciseDB API from Rapid API. The app allows users to see gifs illustrating how the exercise should be done and watch similar Youtube videos showing how the exercise should be done. Additionally, the app recommends other exercises targeting the same muscle for users to try out.
+This is a React-based fitness application that allows users to search for exercises based on their name, equipment, or target muscle. The application fetches data from the [Youtube Search and Download API](https://rapidapi.com/h0p3rwe/api/youtube-search-and-download/) and the [ExerciseDB API](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb) from Rapid API. The app allows users to see gifs illustrating how the exercise should be done and watch similar Youtube videos showing how the exercise should be done. Additionally, the app recommends other exercises targeting the same muscle for users to try out.
 
 ## Installation
 To run this app locally, please follow these steps:
