@@ -27,11 +27,11 @@ const ExerciseDetail = () => {
 
       // api call to Youtube search and download api
       const exerciseVideosData = await fetchData(
-        `${youtubeSearchUrl}/search?=${exerciseDetailData.name}`,
+        `${youtubeSearchUrl}/search?query=${exerciseDetailData.name}`,
         youtubeOptions
       );
 
-      setExerciseVideos(exerciseVideosData);
+      setExerciseVideos(exerciseVideosData.contents);
     };
 
     fetchExercisesData();
